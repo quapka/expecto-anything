@@ -26,6 +26,7 @@ class App(tk.Tk):
 		self.lapButton = tk.Button(text="Lap",
 								   command=self.__lapButton)
 		self.lapButton.pack()
+		# bind Return with __lapButton function
 		self.bind("<Return>", self.__lapButton)
 
 	def __timelabel(self):
@@ -65,11 +66,12 @@ class App(tk.Tk):
 			# if there are previous laps
 			if self.laps:
 				# get their sum
-				elapsed = sum([time_to_seconds(self.laps[x].cget("text")) for x in range(len(self.laps))])
+				elapsed = sum([time_to_seconds(self.laps[x].cget("text").split()[1]) for x in range(len(self.laps))])
 				# substract that
 				t       = t - elapsed
 			t = seconds_to_time(t)
 			t = ":".join([str(x) for x in t])
+			t = "{}. {}".format(len(self.laps)+ 1, t)
 			# add new label with text
 			self.laps.append(tk.Label(text=t))
 			# pack all the label
