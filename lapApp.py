@@ -67,7 +67,7 @@ class App(tk.Tk):
 			if self.laps:
 				# get their sum
 				elapsed = sum([time_to_seconds(self.laps[x].cget("text").split()[1]) for x in range(len(self.laps))])
-				# substract that
+				# subtract that
 				t       = t - elapsed
 			t = seconds_to_time(t)
 			t = ":".join([str(x) for x in t])
