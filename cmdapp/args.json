@@ -1,0 +1,6 @@
+{
+	"--name":{
+		"default": "nothing",
+		"help": "Some useful help."
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"-n": {
+		"help": "some name"
+	},
+	"arg2": {
+		"help": "other arg"
+	}
+}	
