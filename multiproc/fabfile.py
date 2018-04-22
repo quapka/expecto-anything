@@ -1,4 +1,8 @@
+import atexit
+from functools import partial
 import multiprocessing
+import signal
+import subprocess
 import threading
 
 from fabric.api import task, local
@@ -33,3 +37,18 @@ def serve_proc():
 
     for p in processes:
         p.join()
+
+def term_process(proc):
+    try:
+        proc.send_signal(signal.SIGTERM)
+    except OSError:
+        pass
+
+@task
+def serve_subproc():
+    django_proc = subprocess.Popen(['python', 'django_server.py'])
+    npm_proc = subprocess.Popen(['python', 'npm_server.py'])
+    django_proc.wait()
+    npm_proc.wait()
+    atexit.register(partial(term_process, django_proc))
+    atexit.register(partial(term_process, npm_proc))
