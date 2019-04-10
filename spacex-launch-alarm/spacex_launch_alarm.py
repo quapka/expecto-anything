@@ -10,11 +10,12 @@ import vlc
 
 trigger_words = [
     'launch', 'lift-off', 'lift',
-    'webcast', 'spacex.com/webcast'
+    'webcast', 'spacex.com/webcast',
+    'liftoff',
 ]
 
 forbidden_words = [
-    'delay', 'delayed'
+    'delay', 'delayed',
 ]
 
 def get_page():
