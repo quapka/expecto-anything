@@ -113,5 +113,11 @@ if __name__ == '__main__':
         tweets = get_tweets(soup)
         print('Checking the tweets for a trigger tweets.')
         process_tweets(args, tweets)
-        print('Waiting..')
-        time.sleep(abs(args.time_window - 30))
+
+        to_wait = abs(args.time_window - 30)
+        while to_wait:
+            print(' ' * 100, end='\r')
+            print(f'Waiting for {to_wait} seconds', end='\r')
+            time.sleep(1)
+            to_wait -= 1
+        print()
