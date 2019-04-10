@@ -18,4 +18,4 @@ Run it with
 $ python spacex_launch_alarm.py --mp3-file <mp3-song> &
 ```
 
-Enjoy the launch, even in the middle of the night
+Enjoy the launch, even in the middle of the night!
