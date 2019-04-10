@@ -40,7 +40,7 @@ def alarm(song):
             # reset what 'now' means
             now = time.time()
             volume += 10
-            player.audio_set_volume(volume) 
+            player.audio_set_volume(volume)
         player.play()
 
 
@@ -109,4 +109,4 @@ if __name__ == '__main__':
         print('Checking the tweets for a trigger tweets.')
         process_tweets(args, tweets)
         print('Waiting..')
-        time.sleep(args.time_window - 30)
+        time.sleep(abs(args.time_window - 30))
