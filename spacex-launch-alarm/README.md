@@ -19,3 +19,7 @@ $ python spacex_launch_alarm.py --mp3-file <mp3-song> &
 ```
 
 Enjoy the launch, even in the middle of the night!
+
+Contributions
+-------------
+Contributions aren't welcomed, because it would mean, that you spend time on such nonsense as this while you definitely have a better things to do. Like writing a code, that will get us to the Mars. Or go help someone who needs that!
