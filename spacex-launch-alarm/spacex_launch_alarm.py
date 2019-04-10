@@ -48,8 +48,11 @@ def get_tweet_time(tweet):
     val = tweet.find(attrs={'class':'tweet-timestamp'}).span.attrs['data-time']
     return int(val)
 
+def get_tweet_text(tweet):
+    return tweet.find(attrs={'class':'TweetTextSize'}).text
+
 def wanted_tweet(tweet):
-    text = tweet.find(attrs={'class':'TweetTextSize'}).text
+    text = get_tweet_text(text)
     wanted = False
     # any trigger word is enough
     for word in trigger_words:
@@ -72,7 +75,9 @@ def process_tweets(args, tweets):
         tweet_time = get_tweet_time(tweet)
         # the tweet is too old
         if now - tweet_time > time_window:
-            print('Tweet is too old!')
+            print('Tweet is too old! At least have fun reading it!')
+            print(get_tweet_text(tweet))
+            print()
             continue
 
         if wanted_tweet(tweet):
