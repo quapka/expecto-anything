@@ -53,7 +53,7 @@ def get_tweet_text(tweet):
     return tweet.find(attrs={'class':'TweetTextSize'}).text
 
 def wanted_tweet(tweet):
-    text = get_tweet_text(text)
+    text = get_tweet_text(text).lower()
     wanted = False
     # any trigger word is enough
     for word in trigger_words:
